@@ -903,7 +903,6 @@
 
 .kal-courses-hero {
   position: relative;
-  isolation: isolate;
   min-height: clamp(420px, 62vh, 640px);
   display: flex;
   flex-direction: column;
@@ -922,21 +921,22 @@
 
 .kal-courses-hero-bg {
   position: absolute;
-  inset: -8%;
-  width: 116%;
-  height: 116%;
+  inset: -12%;
+  width: 124%;
+  height: 124%;
   object-fit: cover;
   object-position: center;
   transform: rotate(-180deg);
   display: block;
+  /* Blur the image directly — backdrop-filter fails on GH Pages with transforms/isolation */
+  filter: blur(50px);
+  -webkit-filter: blur(50px);
 }
 
 .kal-courses-hero-overlay {
   position: absolute;
   inset: 0;
   background: #000000cc;
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
 }
 
 .kal-courses-hero-content {
