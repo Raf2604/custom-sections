@@ -2618,10 +2618,12 @@ font-family: 'Chopin-Trial', var(--kal-body);
   justify-content: center;
   width: 22px;
   height: 22px;
-  border-radius: 8px;
-  background: #CFCFCF;
-  color: #151515;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.kal-timeline-knob svg {
+  display: block;
+  flex-shrink: 0;
 }
 
 .kal-timeline-copy {
