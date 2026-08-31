@@ -1,11 +1,9 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// GitHub Pages project site: https://raf2604.github.io/custom-sections/
-// Local dev still works at http://localhost:5173/custom-sections/
-const repoBase = '/custom-sections/'
-
-export default defineConfig({
+// GitHub Pages: https://raf2604.github.io/custom-sections/
+// Local dev uses / — production build uses /custom-sections/
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: repoBase,
-})
+  base: command === 'build' ? '/custom-sections/' : '/',
+}))

@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 const projects = [
   { id: 'kaleidoskop', label: 'Kaleidoskop', to: '/kaleidoskop', disabled: false },
   { id: 'booktour', label: 'Booktour', disabled: true },
-  { id: 'edelweiss', label: 'Edelweiss', disabled: true },
+  { id: 'edelweiss', label: 'Edelweiss', to: '/edelweiss', disabled: false },
 ]
 
 export default function Home() {

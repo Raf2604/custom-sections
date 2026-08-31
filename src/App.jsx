@@ -4,6 +4,7 @@ import KaleidoskopLayout from './pages/kaleidoskop/KaleidoskopLayout.jsx'
 import KaleidoskopHome from './pages/kaleidoskop/KaleidoskopHome.jsx'
 import KaleidoskopAbout from './pages/kaleidoskop/KaleidoskopAbout.jsx'
 import KaleidoskopCourses from './pages/kaleidoskop/KaleidoskopCourses.jsx'
+import EdelweissHome from './pages/edelweiss/EdelweissHome.jsx'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="about" element={<KaleidoskopAbout />} />
         <Route path="courses" element={<KaleidoskopCourses />} />
       </Route>
+      <Route path="/edelweiss" element={<EdelweissHome />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
