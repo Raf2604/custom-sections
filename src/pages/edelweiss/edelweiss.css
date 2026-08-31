@@ -108,9 +108,25 @@
   height: 70px;
   padding: 15px 15px 15px 20px;
   box-sizing: border-box;
+  background: transparent;
+}
+
+/* Pseudo-element blur — backdrop-filter on the element itself fails on GH Pages
+   when sibling content uses transforms (hero slides) or isolation is set. */
+.edw-header-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   background: #00000026;
-  backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  pointer-events: none;
+}
+
+.edw-header-inner > * {
+  position: relative;
+  z-index: 1;
 }
 
 .edw-logo {
@@ -148,12 +164,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: #a6a6a6;
   transition: transform 0.25s ease;
 }
 
 .edw-nav-chevron svg {
   flex-shrink: 0;
-  opacity: 0.2;
 }
 
 .edw-nav-link.is-open .edw-nav-chevron {
@@ -175,11 +191,19 @@
   box-sizing: border-box;
   padding: 0px 20px 0px 30px;
   border-radius: 7px;
+  background: transparent;
+}
+
+.edw-services-dropdown::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
   background: #00000026;
-  backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
-  transform: translateZ(0);
-  isolation: isolate;
+  backdrop-filter: blur(40px);
+  pointer-events: none;
 }
 
 .edw-services-dropdown::before {
@@ -189,9 +213,12 @@
   left: 0;
   right: 0;
   height: 5px;
+  z-index: 2;
 }
 
 .edw-services-dropdown-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 250fr 250fr 274fr 286fr;
   gap: 30px;
@@ -282,7 +309,7 @@
 .edw-lang-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 9px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -297,7 +324,6 @@
   white-space: nowrap;
 }
 
-.edw-nav-link svg,
 .edw-lang-btn svg {
   flex-shrink: 0;
   opacity: 0.2;
@@ -308,6 +334,11 @@
   color: var(--edw-cream);
 }
 
+.edw-header .edw-lang-btn svg {
+  color: #a6a6a6;
+  opacity: 1;
+}
+
 .edw-icon-btn {
   display: inline-flex;
   align-items: center;
@@ -316,6 +347,13 @@
   border: 0;
   background: transparent;
   cursor: pointer;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .edw-header-inner::before,
+  .edw-services-dropdown::after {
+    background: rgb(0 0 0 / 55%);
+  }
 }
 
 /* ——— Hero ——— */
@@ -341,7 +379,6 @@
 .edw-hero-slide {
   position: absolute;
   inset: 0;
-  will-change: transform;
   backface-visibility: hidden;
 }
 
@@ -1670,7 +1707,8 @@
 }
 
 .edw-footer-social:hover {
-  color: #fffbf9;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .edw-footer-divider {
@@ -1821,7 +1859,8 @@
 }
 
 .edw-footer-col-list a:hover {
-  color: #fffbf9;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .edw-footer-bar {
@@ -1881,7 +1920,8 @@
 }
 
 .edw-footer-legal a:hover {
-  color: #fffbf9;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 @media (max-width: 1100px) {
