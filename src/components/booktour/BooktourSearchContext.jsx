@@ -14,8 +14,7 @@ export function BooktourSearchProvider({ children }) {
   const [dateSelecting, setDateSelecting] = useState('check-in')
   const [checkIn, setCheckIn] = useState(null)
   const [checkOut, setCheckOut] = useState(null)
-  const [checkInFlex, setCheckInFlex] = useState('exact')
-  const [checkOutFlex, setCheckOutFlex] = useState('exact')
+  const [dateFlex, setDateFlex] = useState('exact')
   const [adults, setAdults] = useState(0)
   const [pets, setPets] = useState(0)
   const [childrenAges, setChildrenAges] = useState([])
@@ -94,11 +93,7 @@ export function BooktourSearchProvider({ children }) {
   }
 
   const handleFlexTagChange = (tagId) => {
-    if (dateSelecting === 'check-out') {
-      setCheckOutFlex(tagId)
-    } else {
-      setCheckInFlex(tagId)
-    }
+    setDateFlex(tagId)
   }
 
   const value = useMemo(
@@ -116,8 +111,7 @@ export function BooktourSearchProvider({ children }) {
       dateSelecting,
       checkIn,
       checkOut,
-      checkInFlex,
-      checkOutFlex,
+      dateFlex,
       adults,
       setAdults,
       pets,
@@ -146,8 +140,7 @@ export function BooktourSearchProvider({ children }) {
       dateSelecting,
       checkIn,
       checkOut,
-      checkInFlex,
-      checkOutFlex,
+      dateFlex,
       adults,
       pets,
       childrenAges,

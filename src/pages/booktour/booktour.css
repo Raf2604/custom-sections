@@ -1539,9 +1539,12 @@
   height: 90px;
   margin: -45px 0 0 -45px;
   border-radius: 50%;
-  background: #28282826;
-  -webkit-backdrop-filter: blur(24px);
-  backdrop-filter: blur(24px);
+  /* No transform / element opacity — both kill backdrop-filter on GH Pages */
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: hidden;
+  --bt-cursor-fade: 0;
+  background: transparent;
   font-family: 'SF Pro Display', var(--bt-font-text);
   font-weight: 200;
   font-size: 16px;
@@ -1550,9 +1553,28 @@
   text-align: center;
   text-transform: uppercase;
   color: #e3e0dc;
-  opacity: 0;
   pointer-events: none;
-  will-change: left, top, opacity;
+  will-change: left, top;
+}
+
+/* Blur on ::before (same pattern as edelweiss header) — survives GH Pages compositing */
+.bt-deals-hero-cursor::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 50%;
+  background: #28282826;
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  opacity: var(--bt-cursor-fade);
+  pointer-events: none;
+}
+
+.bt-deals-hero-cursor .bt-drag-cursor__label {
+  position: relative;
+  z-index: 1;
+  opacity: var(--bt-cursor-fade);
 }
 
 .bt-deals-hero__banner {
@@ -2870,9 +2892,12 @@
   height: 90px;
   margin: -45px 0 0 -45px;
   border-radius: 50%;
-  background: #28282826;
-  -webkit-backdrop-filter: blur(24px);
-  backdrop-filter: blur(24px);
+  /* No transform / element opacity — both kill backdrop-filter on GH Pages */
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: hidden;
+  --bt-cursor-fade: 0;
+  background: transparent;
   font-family: 'SF Pro Display', var(--bt-font-text);
   font-weight: 200;
   font-size: 16px;
@@ -2881,9 +2906,27 @@
   text-align: center;
   text-transform: uppercase;
   color: #e3e0dc;
-  opacity: 0;
   pointer-events: none;
-  will-change: left, top, opacity;
+  will-change: left, top;
+}
+
+.bt-inspiration-cursor::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 50%;
+  background: #28282826;
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  opacity: var(--bt-cursor-fade);
+  pointer-events: none;
+}
+
+.bt-inspiration-cursor .bt-drag-cursor__label {
+  position: relative;
+  z-index: 1;
+  opacity: var(--bt-cursor-fade);
 }
 
 .bt-inspiration-head {

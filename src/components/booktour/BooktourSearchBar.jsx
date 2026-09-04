@@ -33,8 +33,7 @@ export default function BooktourSearchBar({ variant = 'hero' }) {
     dateSelecting,
     checkIn,
     checkOut,
-    checkInFlex,
-    checkOutFlex,
+    dateFlex,
     adults,
     setAdults,
     pets,
@@ -370,7 +369,7 @@ export default function BooktourSearchBar({ variant = 'hero' }) {
             checkIn={checkIn}
             checkOut={checkOut}
             selecting={dateSelecting}
-            flexTag={dateSelecting === 'check-out' ? checkOutFlex : checkInFlex}
+            flexTag={dateFlex}
             onFlexTagChange={handleFlexTagChange}
             onCheckInChange={handleCheckInChange}
             onCheckOutChange={handleCheckOutChange}
