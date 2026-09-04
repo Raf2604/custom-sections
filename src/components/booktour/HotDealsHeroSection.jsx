@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react'
 import heroBg from '../../assets/booktour/hot-deals-hero.png'
 import { HOT_DEALS_HERO_CARDS } from '../../data/booktourHotDealsHero.js'
 import HotDealsHeroCard from './HotDealsHeroCard.jsx'
+import DragCursor from './DragCursor.jsx'
 
 export default function HotDealsHeroSection() {
   const [index, setIndex] = useState(0)
@@ -87,8 +88,10 @@ export default function HotDealsHeroSection() {
 
     const moveCursor = (event) => {
       gsap.to(cursor, {
-        x: event.clientX,
-        y: event.clientY,
+        left: event.clientX,
+        top: event.clientY,
+        x: 0,
+        y: 0,
         duration: 0.16,
         ease: 'power2.out',
         overwrite: 'auto',
@@ -96,11 +99,11 @@ export default function HotDealsHeroSection() {
     }
 
     const showCursor = () => {
-      gsap.to(cursor, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
+      gsap.to(cursor, { opacity: 1, duration: 0.2, ease: 'power2.out' })
     }
 
     const hideCursor = () => {
-      gsap.to(cursor, { opacity: 0, scale: 0.82, duration: 0.16, ease: 'power2.in' })
+      gsap.to(cursor, { opacity: 0, duration: 0.16, ease: 'power2.in' })
     }
 
     slider.addEventListener('pointermove', moveCursor)
@@ -165,9 +168,7 @@ export default function HotDealsHeroSection() {
       className="bt-deals-hero"
       aria-labelledby="bt-deals-hero-title"
     >
-      <div ref={cursorRef} className="bt-deals-hero-cursor" aria-hidden="true">
-        Drag
-      </div>
+      <DragCursor ref={cursorRef} className="bt-deals-hero-cursor" />
 
       <div className="bt-deals-hero__banner">
         <img src={heroBg} alt="" className="bt-deals-hero__bg" />

@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { INSPIRATION_INTRO, INSPIRATION_TABS } from '../../data/booktourInspiration.js'
 import InspirationCard from './InspirationCard.jsx'
+import DragCursor from './DragCursor.jsx'
 
 const VISIBLE = 3
 
@@ -89,8 +90,10 @@ export default function InspirationSection() {
 
     const moveCursor = (event) => {
       gsap.to(cursor, {
-        x: event.clientX,
-        y: event.clientY,
+        left: event.clientX,
+        top: event.clientY,
+        x: 0,
+        y: 0,
         duration: 0.16,
         ease: 'power2.out',
         overwrite: 'auto',
@@ -98,11 +101,11 @@ export default function InspirationSection() {
     }
 
     const showCursor = () => {
-      gsap.to(cursor, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
+      gsap.to(cursor, { opacity: 1, duration: 0.2, ease: 'power2.out' })
     }
 
     const hideCursor = () => {
-      gsap.to(cursor, { opacity: 0, scale: 0.82, duration: 0.16, ease: 'power2.in' })
+      gsap.to(cursor, { opacity: 0, duration: 0.16, ease: 'power2.in' })
     }
 
     slider.addEventListener('pointermove', moveCursor)
@@ -168,9 +171,7 @@ export default function InspirationSection() {
       className="bt-inspiration"
       aria-labelledby="bt-inspiration-title"
     >
-      <div ref={cursorRef} className="bt-inspiration-cursor" aria-hidden="true">
-        Drag
-      </div>
+      <DragCursor ref={cursorRef} className="bt-inspiration-cursor" />
 
       <div className="bt-inspiration-head">
         <h2 id="bt-inspiration-title" className="bt-inspiration-title">

@@ -1531,7 +1531,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 40;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1540,8 +1540,8 @@
   margin: -45px 0 0 -45px;
   border-radius: 50%;
   background: #28282826;
-  backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
   font-family: 'SF Pro Display', var(--bt-font-text);
   font-weight: 200;
   font-size: 16px;
@@ -1551,9 +1551,8 @@
   text-transform: uppercase;
   color: #e3e0dc;
   opacity: 0;
-  scale: 0.82;
   pointer-events: none;
-  will-change: transform, opacity;
+  will-change: left, top, opacity;
 }
 
 .bt-deals-hero__banner {
@@ -2863,7 +2862,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 40;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2872,8 +2871,8 @@
   margin: -45px 0 0 -45px;
   border-radius: 50%;
   background: #28282826;
-  backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
   font-family: 'SF Pro Display', var(--bt-font-text);
   font-weight: 200;
   font-size: 16px;
@@ -2883,9 +2882,8 @@
   text-transform: uppercase;
   color: #e3e0dc;
   opacity: 0;
-  scale: 0.82;
   pointer-events: none;
-  will-change: transform, opacity;
+  will-change: left, top, opacity;
 }
 
 .bt-inspiration-head {
