@@ -1,0 +1,17 @@
+export const HERO_DESTINATIONS = [
+  { id: 'da-nang', name: 'Da Nang, Vietnam', description: 'Popular Beach Destination', icon: 0 },
+  { id: 'auckland', name: 'Auckland, New Zealand', description: 'Harbor City Escape', icon: 1 },
+  { id: 'ubud', name: 'Ubud, Indonesia', description: 'Popular Beach Destination', icon: 0 },
+  { id: 'ko-samui', name: 'Ko Samui, Thailand', description: 'Island Getaway', icon: 2 },
+  { id: 'tone', name: 'Tone District, Japan', description: 'Winter Wonderland', icon: 3 },
+  { id: 'gudauri', name: 'Gudauri, Georgia', description: 'Ski Destination', icon: 3 },
+  { id: 'bali', name: 'Bali, Indonesia', description: 'Popular Beach Destination', icon: 0 },
+  { id: 'santorini', name: 'Santorini, Greece', description: 'Coastal Escape', icon: 1 },
+  { id: 'paris', name: 'Paris, France', description: 'City Break', icon: 2 },
+  { id: 'niseko', name: 'Niseko, Japan', description: 'Ski Destination', icon: 3 },
+  { id: 'malibu', name: 'Malibu, USA', description: 'Popular Beach Destination', icon: 0 },
+  { id: 'lisbon', name: 'Lisbon, Portugal', description: 'City Escape', icon: 1 },
+  { id: 'cappadocia', name: 'Cappadocia, Turkey', description: 'Scenic Getaway', icon: 2 },
+  { id: 'banff', name: 'Banff, Canada', description: 'Winter Wonderland', icon: 3 },
+  { id: 'phuket', name: 'Phuket, Thailand', description: 'Popular Beach Destination', icon: 0 },
+]
